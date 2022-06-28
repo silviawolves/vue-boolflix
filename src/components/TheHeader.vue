@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { searchMovie } from '../store.js'
 
 export default {
     name: 'TheHeader',
@@ -20,9 +21,9 @@ export default {
     },
     methods: {
         onSearch() {
-            console.log(this.searchText)
+            searchMovie(this.searchText)
         }
-    }
+    },
 }
 </script>
 

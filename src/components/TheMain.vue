@@ -3,7 +3,7 @@
 
         <div class="movie-list">
             <ul class="list-unstyled">
-                <li></li>
+                <li v-for="(film, i) in fetchMovie" :key="i">{{ film.title }}</li>
             </ul>
         </div>
 
