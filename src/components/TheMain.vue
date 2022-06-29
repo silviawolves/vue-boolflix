@@ -2,12 +2,7 @@
     <div class="container">
 
         <div class="movie-list">
-            <ul v-for="(film, i) in fetchMovie" :key="i">
-                <li><strong>Titolo</strong>: {{ film.title }}</li>
-                <li><strong>Titolo originale</strong>: {{ film.original_title }}</li>
-                <li><strong>Lingua originale</strong>: {{ film.original_language }}</li>
-                <li><strong>Voto medio</strong>: {{ film.vote_average }}</li>
-            </ul>
+            <MovieCard v-for="(movie, i) in fetchMovie" :key="i" :titolo-film="movie.title" :titolo-originale="movie.original_title" :lingua-originale="movie.original_language" :voto-medio="movie.vote_average"></MovieCard>
         </div>
 
         <div class="series-list">
@@ -21,12 +16,14 @@
 
 <script>
 import { state } from '../store.js'
+import MovieCard from './MovieCard.vue'
 
 export default {
-    name: 'TheMain',
+    name: "TheMain",
+    components: { MovieCard },
     computed: {
         fetchMovie() {
-            return state.movieList
+            return state.movieList;
         }
     }
 }
