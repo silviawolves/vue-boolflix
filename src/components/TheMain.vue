@@ -2,11 +2,23 @@
     <div class="container">
 
         <div class="movie-list">
-            <MovieCard v-for="(movie, i) in fetchMovie" :key="i" :titolo-film="movie.title" :titolo-originale="movie.original_title" :lingua-originale="movie.original_language" bandiera-nazione :voto-medio="movie.vote_average"></MovieCard>
+            <MovieCard v-for="(movie, i) in fetchMovie" :key="i" 
+            :url-img="urlPoster + movie.poster_path"
+            :titolo-film="movie.title" 
+            :titolo-originale="movie.original_title" 
+            :lingua-originale="movie.original_language" 
+            bandiera-nazione 
+            :voto-medio="movie.vote_average"></MovieCard>
         </div>
 
         <div class="series-list">
-            <MovieCard v-for="(serie, i) in fetchSeries" :key="i" :titolo-film="serie.name" :titolo-originale="serie.original_name" :lingua-originale="serie.original_language" :voto-medio="serie.vote_average"></MovieCard>
+            <MovieCard v-for="(serie, i) in fetchSeries" :key="i" 
+            :url-img="urlPoster + serie.poster_path"
+            :titolo-film="serie.name" 
+            :titolo-originale="serie.original_name" 
+            :lingua-originale="serie.original_language" 
+            bandiera-nazione 
+            :voto-medio="serie.vote_average"></MovieCard>
         </div>
 
     </div>
@@ -26,6 +38,9 @@ export default {
         fetchSeries(){
             return state.seriesList
         },
+        urlPoster() {
+            return "https://image.tmdb.org/t/p/" + "w185"
+        }
     },
 }
 </script>

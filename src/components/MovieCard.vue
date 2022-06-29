@@ -2,6 +2,10 @@
     <div class="container">
 
         <div class="my-card">
+            <div class="card-pic">
+                <img :src="urlImg" :alt="`Immagine di {{ titoloFilm }}`">
+            </div>
+
             <div class="card-title m-0 p-0">
                 <h4 class="m-0">{{ titoloFilm }}</h4>
                 <small>{{ titoloOriginale }}</small>
@@ -22,6 +26,7 @@
 export default {
     name: 'MovieCard',
     props: {
+        urlImg: String,
         titoloFilm: String,
         titoloOriginale: String,
         linguaOriginale: String,
@@ -51,7 +56,7 @@ export default {
             }
 
             return this.linguaOriginale
-        }
+        },
     }
 }
 </script>
