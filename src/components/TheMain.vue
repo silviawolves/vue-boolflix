@@ -6,13 +6,9 @@
                 <MovieCard :movie="movie"></MovieCard>
             </div>
 
-            <!-- <MovieCard v-for="serie in fetchSeries" :key="serie.id" 
-            :url-img="urlPoster + serie.poster_path"
-            :titolo-film="serie.name" 
-            :titolo-originale="serie.original_name" 
-            :lingua-originale="serie.original_language" 
-            bandiera-nazione 
-            :voto-medio="serie.vote_average"></MovieCard> -->
+            <div class="col-2" v-for="movie in fetchSeries" :key="movie.id">
+                <MovieCard :movie="movie"></MovieCard>
+            </div>
         </div>
 
     </div>

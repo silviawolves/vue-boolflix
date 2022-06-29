@@ -2,13 +2,13 @@
 
     <div class="my-card">
         <div class="card-pic">
-            <img :src="urlPoster" :alt="`Immagine di ${movie.title}`">
+            <img :src="urlPoster" :alt="`Immagine di ${movieTitle}`">
         </div>
 
         <div class="card-body pb-3 pt-0 ps-0">
             <div class="card-title m-0 p-0">
-                <h4 class="m-0">{{ movie.title }}</h4>
-                <small>{{ movie.original_title}}</small>
+                <h6 class="text-uppercase mb-0 mt-1">{{ movieTitle }}</h6>
+                <small>{{ movieOriginalTitle }}</small>
             </div>
             <div class="text-muted">Lingua originale: {{ movie.original_language }}
                 <span class="fi" :class="'fi-' + langMap"></span>
@@ -54,6 +54,18 @@ export default {
                 return 'http://lexingtonvenue.com/media/poster-placeholder.jpg'
             }
             return "https://image.tmdb.org/t/p/" + "w185" + this.movie.poster_path
+        },
+        movieTitle() {
+            if (this.movie.name) {
+                return this.movie.name
+            }
+            return this.movie.title
+        },
+        movieOriginalTitle() {
+            if (this.movie.original_name) {
+                return this.movie.original_name
+            }
+            return this.movie.original_title
         }
     }
 }
@@ -66,8 +78,7 @@ export default {
 
         .card-pic img {
             width: 100%;
-            height: 100%;
-            display: block
+            display: block;
         }
     }
 </style>
