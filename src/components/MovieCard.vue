@@ -5,7 +5,7 @@
             <img :src="urlPoster" :alt="`Immagine di ${movieTitle}`">
         </div>
 
-        <div class="card-body pb-3 pt-0 ps-0">
+        <div class="card-body pb-3 pt-0 ps-0 flex-shrink-0">
             <div class="card-title m-0 p-0">
                 <h6 class="text-uppercase mb-0 mt-1">{{ movieTitle }}</h6>
                 <small>{{ movieOriginalTitle }}</small>
@@ -13,7 +13,7 @@
             <div class="text-muted">Lingua originale: {{ movie.original_language }}
                 <span class="fi" :class="'fi-' + langMap"></span>
             </div>
-            <div class="text-muted">Voto: {{ movie.vote_average }}</div>
+            <div class="text-muted">Voto: {{ voteToStars }}</div>
         </div>
     </div>
 
@@ -66,6 +66,10 @@ export default {
                 return this.movie.original_name
             }
             return this.movie.original_title
+        },
+        voteToStars() {
+            let vote = Math.ceil(this.movie.vote_average / 2)
+            return vote
         }
     }
 }
@@ -76,9 +80,14 @@ export default {
         width: 100%;
         height: 100%;
 
-        .card-pic img {
+        .card-pic {
+            overflow: hidden;
             width: 100%;
-            display: block;
+
+                img {
+                display: block;
+                width: 100%;
+            }
         }
     }
 </style>
