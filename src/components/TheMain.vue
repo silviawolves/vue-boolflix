@@ -1,16 +1,18 @@
 <template>
-    <div class="container">
+    <div class="main">
+        <div class="container">
 
-        <div class="row">
-            <div class="col-2" v-for="(movie, i) in fetchMovie" :key="i">
-                <MovieCard :movie="movie"></MovieCard>
+            <div class="row">
+                <div class="col-2" v-for="(movie, i) in fetchMovie" :key="i">
+                    <MovieCard :movie="movie"></MovieCard>
+                </div>
+
+                <div class="col-2" v-for="movie in fetchSeries" :key="movie.id">
+                    <MovieCard :movie="movie"></MovieCard>
+                </div>
             </div>
 
-            <div class="col-2" v-for="movie in fetchSeries" :key="movie.id">
-                <MovieCard :movie="movie"></MovieCard>
-            </div>
         </div>
-
     </div>
 </template>
 
@@ -34,5 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/main.scss";
+
+.main {
+    flex-grow: 1;
+    overflow: auto;
+}
 
 </style>
