@@ -2,7 +2,7 @@
     <div class="main">
         <div class="container">
 
-            <div class="row">
+            <div class="row g-2">
                 <div class="col-2" v-for="(movie, i) in fetchMovie" :key="i">
                     <MovieCard :movie="movie"></MovieCard>
                 </div>
@@ -40,6 +40,7 @@ export default {
 .main {
     flex-grow: 1;
     overflow: auto;
+    padding: 1rem;
 }
 
 </style>
